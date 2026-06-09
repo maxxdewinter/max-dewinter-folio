@@ -39,7 +39,7 @@ function SocialRow({ size = 26 }: { size?: number }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-            className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-border text-muted-foreground transition-all hover:text-primary hover:border-primary/50 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-primary/15 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <Icon width={size} height={size} />
         </a>
@@ -50,7 +50,7 @@ function SocialRow({ size = 26 }: { size?: number }) {
 
 function FlagPill({ code, name }: { code: string; name: string }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-sm">
+    <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card/60 px-3 py-1.5 text-sm">
       <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground" aria-hidden="true">{code}</span>
       <span className="text-foreground/90 font-normal">{name}</span>
     </span>
@@ -67,7 +67,7 @@ function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-primary/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <a href="#hero" className="font-serif text-xl tracking-wide text-foreground">MDW</a>
           <div className="flex items-center gap-2 sm:gap-3 text-[15px] font-medium text-foreground/80" style={{ fontFamily: '"Inter", sans-serif' }}>
@@ -75,7 +75,7 @@ function Index() {
               <a
                 key={l.href}
                 href={l.href}
-                className="px-3 py-2 rounded-md hover:text-foreground hover:bg-foreground/5 transition-colors"
+                className="px-3 py-2 rounded-md hover:text-foreground hover:bg-foreground/5 transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {l.label}
               </a>
@@ -127,7 +127,7 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-border/40">
+      <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">About</p>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
@@ -152,7 +152,7 @@ function Index() {
 
 
       {/* Ventures */}
-      <section id="ventures" className="py-32 px-6 md:px-16 border-t border-border/40">
+      <section id="ventures" className="py-32 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Ventures</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-16">Current work.</h2>
@@ -172,13 +172,13 @@ function Index() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-32 px-6 md:px-16 border-t border-border/40">
+      <section id="contact" className="py-32 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Contact</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-10">Say hello.</h2>
           <a
             href="mailto:hello@maxdewinter.com"
-            className="inline-block font-serif text-2xl md:text-3xl text-foreground border-b border-border/60 hover:border-foreground transition-colors pb-1"
+            className="inline-block font-serif text-2xl md:text-3xl text-foreground border-b border-primary/20 hover:border-primary transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
           >
             hello@maxdewinter.com
           </a>
@@ -191,7 +191,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-10 px-6 md:px-16 border-t border-border/40">
+      <footer className="py-10 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Max DeWinter</p>
           <p className="font-serif tracking-wide text-sm">MDW</p>
@@ -203,14 +203,14 @@ function Index() {
 
 function VentureCard({ title, description, href }: { title: string; description: string; href: string }) {
   return (
-    <div className="group relative bg-card/40 border border-border/60 rounded-lg p-10 transition-all hover:border-border hover:bg-card/70">
+    <div className="group relative bg-card/40 border border-primary/15 rounded-lg p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-primary/30 hover:bg-card/70">
       <h3 className="font-serif text-3xl mb-4">{title}</h3>
       <p className="text-muted-foreground font-light leading-relaxed mb-8">{description}</p>
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-border/60 hover:text-primary hover:border-primary transition-colors pb-1"
+        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-primary/20 hover:text-primary hover:border-primary transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
       >
         Visit Site
         <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
