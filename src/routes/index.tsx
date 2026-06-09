@@ -15,10 +15,11 @@ export const Route = createFileRoute("/")({
 });
 
 const socials = [
-  { label: "Instagram", href: "https://instagram.com/maxdewinter", Icon: Instagram },
-  { label: "TikTok", href: "https://tiktok.com/@maxdewinter", Icon: TikTokIcon },
-  { label: "YouTube", href: "https://youtube.com/@maxdewinter", Icon: Youtube },
-  { label: "LinkedIn", href: "https://linkedin.com/in/maxdewinter", Icon: Linkedin },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/max-dewinter", Icon: Linkedin },
+  { label: "Instagram", href: "https://www.instagram.com/maxdewinter/", Icon: Instagram },
+  { label: "TikTok", href: "https://www.tiktok.com/@maxxdewinter", Icon: TikTokIcon },
+  { label: "YouTube", href: "https://www.youtube.com/@maxdewinter03", Icon: Youtube },
+  { label: "Spotify", href: "https://open.spotify.com/user/1vli30c9e95hzkqp631fhbzam", Icon: SpotifyIcon },
 ];
 
 function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
