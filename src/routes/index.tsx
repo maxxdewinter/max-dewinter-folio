@@ -172,13 +172,13 @@ function Index() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-32 px-6 md:px-16 border-t border-border/40">
+      <section id="contact" className="py-32 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Contact</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-10">Say hello.</h2>
           <a
             href="mailto:hello@maxdewinter.com"
-            className="inline-block font-serif text-2xl md:text-3xl text-foreground border-b border-border/60 hover:border-foreground transition-colors pb-1"
+            className="inline-block font-serif text-2xl md:text-3xl text-foreground border-b border-primary/20 hover:border-primary transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
           >
             hello@maxdewinter.com
           </a>
