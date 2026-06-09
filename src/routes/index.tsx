@@ -135,15 +135,16 @@ function Index() {
           </h2>
           <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
             <p>
-              Currently a student at the University of Sydney, working part-time
-              while pursuing my own ventures on the side.
+              Current student at the University of Sydney studying Management and
+              International Business, working part-time while pursuing my own
+              ventures on the side.
             </p>
             <p>
               Competitive background in soccer (NCAA DII). Outside of that, I
               spend my time weightlifting, cycling, biohacking, and cooking.
               Broad music taste spanning 7,000+ liked tracks on Spotify, and a
-              soft spot for classic cinema — from Hitchcock thrillers to
-              Eastwood westerns.
+              soft spot for classic cinema, from Hitchcock thrillers to Eastwood
+              westerns.
             </p>
           </div>
         </div>
