@@ -67,7 +67,7 @@ function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-primary/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <a href="#hero" className="font-serif text-xl tracking-wide text-foreground">MDW</a>
           <div className="flex items-center gap-2 sm:gap-3 text-[15px] font-medium text-foreground/80" style={{ fontFamily: '"Inter", sans-serif' }}>
