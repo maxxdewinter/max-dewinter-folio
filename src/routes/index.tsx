@@ -191,7 +191,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-10 px-6 md:px-16 border-t border-border/40">
+      <footer className="py-10 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Max DeWinter</p>
           <p className="font-serif tracking-wide text-sm">MDW</p>
