@@ -50,7 +50,7 @@ function SocialRow({ size = 26 }: { size?: number }) {
 
 function FlagPill({ code, name }: { code: string; name: string }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-sm">
+    <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card/60 px-3 py-1.5 text-sm">
       <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground" aria-hidden="true">{code}</span>
       <span className="text-foreground/90 font-normal">{name}</span>
     </span>
