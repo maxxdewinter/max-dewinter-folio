@@ -73,17 +73,33 @@ function Index() {
 
       {/* Hero */}
       <section id="hero" className="relative min-h-screen flex flex-col md:flex-row pt-16">
-        <div className="flex-1 flex items-center px-6 md:px-16 py-16 md:py-0">
-          <div className="max-w-xl">
+        <div className="flex-1 flex items-center px-6 md:px-16 py-16 md:py-20">
+          <div className="max-w-xl w-full">
             <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight">
               Max<br />DeWinter
             </h1>
-            <div className="mt-10 space-y-2 text-base md:text-lg text-muted-foreground font-light">
-              <p>Born <span className="mx-2 text-foreground/40">·</span> 🇹🇭 <span className="mx-2 text-foreground/40">·</span> 🏴󠁧󠁢󠁥󠁮󠁬󠁿</p>
-              <p>Raised <span className="mx-2 text-foreground/40">·</span> 🇳🇿</p>
-              <p>Studied <span className="mx-2 text-foreground/40">·</span> 🇺🇸 <span className="mx-2 text-foreground/40">·</span> 🇦🇺</p>
-              <p>Based <span className="mx-2 text-foreground/40">·</span> 🇦🇺</p>
-            </div>
+            <dl className="mt-10 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-base md:text-lg font-light">
+              {[
+                { label: "Born", places: [{ flag: "🇹🇭", name: "Thailand" }, { flag: "🏴󠁧󠁢󠁥󠁮󠁬󠁿", name: "England" }] },
+                { label: "Raised", places: [{ flag: "🇳🇿", name: "New Zealand" }] },
+                { label: "Studied", places: [{ flag: "🇺🇸", name: "USA" }, { flag: "🇦🇺", name: "Australia" }] },
+                { label: "Based", places: [{ flag: "🇦🇺", name: "Australia" }] },
+              ].map((row) => (
+                <div key={row.label} className="contents">
+                  <dt className="text-xs uppercase tracking-[0.25em] text-muted-foreground pt-2">
+                    {row.label}
+                  </dt>
+                  <dd className="flex flex-wrap items-center gap-2">
+                    {row.places.map((p, i) => (
+                      <span key={i} className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-sm">
+                        <span className="text-lg leading-none" aria-hidden="true">{p.flag}</span>
+                        <span className="text-foreground/80">{p.name}</span>
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              ))}
+            </dl>
             <div className="mt-10">
               <SocialRow />
             </div>
@@ -95,33 +111,35 @@ function Index() {
             alt="Portrait of Max DeWinter"
             width={1024}
             height={1536}
-            className="absolute inset-0 w-full h-full object-cover opacity-70"
+            className="absolute inset-0 w-full h-full object-cover grayscale-[20%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent md:via-background/20" />
-          <div className="absolute inset-0 bg-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent md:via-background/10" />
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="py-32 px-6 md:px-16 border-t border-border/40">
+      <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-border/40">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-8">About</p>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
-            Building quietly, across continents.
+            A little about me.
           </h2>
           <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
             <p>
-              I'm Max — a founder and operator drawn to small, considered businesses.
-              My work tends to live at the intersection of brand, product, and
-              everyday utility.
+              Currently a student at the University of Sydney, working part-time
+              while pursuing my own ventures on the side.
             </p>
             <p>
-              I split my time between building ventures, advising early teams,
-              and quietly improving the things I use most.
+              Competitive background in soccer (NCAA DII). Outside of that, I
+              spend my time weightlifting, cycling, biohacking, and cooking.
+              Broad music taste spanning 7,000+ liked tracks on Spotify, and a
+              soft spot for classic cinema — from Hitchcock thrillers to
+              Eastwood westerns.
             </p>
           </div>
         </div>
       </section>
+
 
       {/* Ventures */}
       <section id="ventures" className="py-32 px-6 md:px-16 border-t border-border/40">
