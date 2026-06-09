@@ -129,7 +129,7 @@ function Index() {
       {/* About */}
       <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-border/40">
         <div className="max-w-3xl mx-auto">
-          <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-8">About</p>
+          <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">About</p>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
             For Context.
           </h2>
@@ -154,7 +154,7 @@ function Index() {
       {/* Ventures */}
       <section id="ventures" className="py-32 px-6 md:px-16 border-t border-border/40">
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-8">Ventures</p>
+          <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Ventures</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-16">Current work.</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <VentureCard
@@ -174,7 +174,7 @@ function Index() {
       {/* Contact */}
       <section id="contact" className="py-32 px-6 md:px-16 border-t border-border/40">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-8">Contact</p>
+          <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Contact</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-10">Say hello.</h2>
           <a
             href="mailto:hello@maxdewinter.com"
