@@ -210,7 +210,7 @@ function VentureCard({ title, description, href }: { title: string; description:
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-border/60 hover:text-primary hover:border-primary transition-colors pb-1"
+        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-primary/20 hover:text-primary hover:border-primary transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
       >
         Visit Site
         <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
