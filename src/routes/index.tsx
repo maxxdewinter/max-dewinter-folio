@@ -28,9 +28,9 @@ function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function SocialRow({ size = 18 }: { size?: number }) {
+function SocialRow({ size = 26 }: { size?: number }) {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center gap-3">
       {socials.map(({ label, href, Icon }) => (
         <a
           key={label}
@@ -38,7 +38,7 @@ function SocialRow({ size = 18 }: { size?: number }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-muted-foreground transition-colors hover:text-foreground"
+          className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-border text-muted-foreground transition-all hover:text-foreground hover:border-foreground/60 hover:-translate-y-0.5"
         >
           <Icon width={size} height={size} />
         </a>
@@ -46,6 +46,7 @@ function SocialRow({ size = 18 }: { size?: number }) {
     </div>
   );
 }
+
 
 function Index() {
   const navLinks = [
