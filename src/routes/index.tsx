@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Linkedin, ArrowUpRight } from "lucide-react";
-import portrait from "@/assets/max-portrait.jpg";
+import { Instagram, Linkedin, Youtube, ArrowUpRight } from "lucide-react";
+import portraitAsset from "@/assets/max-portrait-new.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,6 +17,7 @@ export const Route = createFileRoute("/")({
 const socials = [
   { label: "Instagram", href: "https://instagram.com/maxdewinter", Icon: Instagram },
   { label: "TikTok", href: "https://tiktok.com/@maxdewinter", Icon: TikTokIcon },
+  { label: "YouTube", href: "https://youtube.com/@maxdewinter", Icon: Youtube },
   { label: "LinkedIn", href: "https://linkedin.com/in/maxdewinter", Icon: Linkedin },
 ];
 
@@ -47,6 +48,14 @@ function SocialRow({ size = 26 }: { size?: number }) {
   );
 }
 
+function FlagPill({ code, name }: { code: string; name: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-sm">
+      <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground" aria-hidden="true">{code}</span>
+      <span className="text-foreground/90 font-normal">{name}</span>
+    </span>
+  );
+}
 
 function Index() {
   const navLinks = [
@@ -58,12 +67,16 @@ function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/40">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-          <a href="#hero" className="font-serif text-lg tracking-wide">MD</a>
-          <div className="flex items-center gap-8 text-sm text-muted-foreground">
+          <a href="#hero" className="font-serif text-xl tracking-wide text-foreground">MDW</a>
+          <div className="flex items-center gap-2 sm:gap-3 text-[15px] font-medium text-foreground/80" style={{ fontFamily: '"Inter", sans-serif' }}>
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">
+              <a
+                key={l.href}
+                href={l.href}
+                className="px-3 py-2 rounded-md hover:text-foreground hover:bg-foreground/5 transition-colors"
+              >
                 {l.label}
               </a>
             ))}
@@ -78,23 +91,20 @@ function Index() {
             <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight">
               Max<br />DeWinter
             </h1>
-            <dl className="mt-10 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-base md:text-lg font-light">
+            <dl className="mt-10 grid grid-cols-[auto_1fr] gap-x-6 gap-y-4 text-base md:text-lg">
               {[
-                { label: "Born", places: [{ flag: "🇹🇭", name: "Thailand" }, { flag: "🏴󠁧󠁢󠁥󠁮󠁬󠁿", name: "England" }] },
-                { label: "Raised", places: [{ flag: "🇳🇿", name: "New Zealand" }] },
-                { label: "Studied", places: [{ flag: "🇺🇸", name: "USA" }, { flag: "🇦🇺", name: "Australia" }] },
-                { label: "Based", places: [{ flag: "🇦🇺", name: "Australia" }] },
+                { label: "Born", places: [{ code: "TH", name: "Thailand" }, { code: "EN", name: "England" }] },
+                { label: "Raised", places: [{ code: "NZ", name: "New Zealand" }] },
+                { label: "Studied", places: [{ code: "US", name: "USA" }, { code: "AU", name: "Australia" }] },
+                { label: "Based", places: [{ code: "AU", name: "Australia" }] },
               ].map((row) => (
                 <div key={row.label} className="contents">
-                  <dt className="text-xs uppercase tracking-[0.25em] text-muted-foreground pt-2">
+                  <dt className="text-sm uppercase tracking-[0.22em] font-semibold text-foreground/90 pt-2">
                     {row.label}
                   </dt>
                   <dd className="flex flex-wrap items-center gap-2">
                     {row.places.map((p, i) => (
-                      <span key={i} className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-sm">
-                        <span className="text-lg leading-none" aria-hidden="true">{p.flag}</span>
-                        <span className="text-foreground/80">{p.name}</span>
-                      </span>
+                      <FlagPill key={i} code={p.code} name={p.name} />
                     ))}
                   </dd>
                 </div>
@@ -105,15 +115,14 @@ function Index() {
             </div>
           </div>
         </div>
-        <div className="relative flex-1 min-h-[60vh] md:min-h-screen overflow-hidden">
+        <div className="relative flex-1 min-h-[60vh] md:min-h-screen overflow-hidden bg-muted">
           <img
-            src={portrait}
+            src={portraitAsset.url}
             alt="Portrait of Max DeWinter"
-            width={1024}
-            height={1536}
-            className="absolute inset-0 w-full h-full object-cover grayscale-[20%]"
+            className="absolute inset-0 w-full h-full object-cover opacity-80 grayscale-[60%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent md:via-background/10" />
+          <div className="absolute inset-0 bg-background/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent md:via-background/20" />
         </div>
       </section>
 
@@ -122,7 +131,7 @@ function Index() {
         <div className="max-w-3xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-8">About</p>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
-            A little about me.
+            For Context.
           </h2>
           <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
             <p>
@@ -149,13 +158,13 @@ function Index() {
           <div className="grid md:grid-cols-2 gap-8">
             <VentureCard
               title="The Winter Shop"
-              description="A considered marketplace for objects worth keeping. Curated goods, honest stories, slow commerce."
-              href="https://thewintershop.com"
+              description="Quality without the markup. Curated goods chosen for how well they're made, not how well they're marketed."
+              href="https://thewinter.shop"
             />
             <VentureCard
               title="Lean Salt"
-              description="Functional pantry essentials, reformulated. Clean ingredients, modern packaging, daily ritual."
-              href="https://leansalt.com"
+              description="Two ingredients. No fillers. A better electrolyte for people who care what goes in their body."
+              href="https://thewinter.shop/leansalt"
             />
           </div>
         </div>
@@ -172,6 +181,9 @@ function Index() {
           >
             hello@maxdewinter.com
           </a>
+          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            Please email for CV
+          </p>
           <div className="mt-12 flex justify-center">
             <SocialRow size={20} />
           </div>
@@ -181,7 +193,7 @@ function Index() {
       <footer className="py-10 px-6 md:px-16 border-t border-border/40">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Max DeWinter</p>
-          <p className="font-serif tracking-wide">MD</p>
+          <p className="font-serif tracking-wide text-sm">MDW</p>
         </div>
       </footer>
     </main>
