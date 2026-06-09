@@ -39,7 +39,7 @@ function SocialRow({ size = 26 }: { size?: number }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-border text-muted-foreground transition-all hover:text-foreground hover:border-foreground/60 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-border text-muted-foreground transition-all hover:text-primary hover:border-primary/50 hover:-translate-y-0.5"
         >
           <Icon width={size} height={size} />
         </a>
