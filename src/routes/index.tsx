@@ -75,7 +75,7 @@ function Index() {
               <a
                 key={l.href}
                 href={l.href}
-                className="px-3 py-2 rounded-md hover:text-foreground hover:bg-foreground/5 transition-colors"
+                className="px-3 py-2 rounded-md hover:text-foreground hover:bg-foreground/5 transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {l.label}
               </a>
