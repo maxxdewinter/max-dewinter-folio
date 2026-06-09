@@ -203,7 +203,7 @@ function Index() {
 
 function VentureCard({ title, description, href }: { title: string; description: string; href: string }) {
   return (
-    <div className="group relative bg-card/40 border border-border/60 rounded-lg p-10 transition-all hover:border-border hover:bg-card/70">
+    <div className="group relative bg-card/40 border border-primary/15 rounded-lg p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-primary/30 hover:bg-card/70">
       <h3 className="font-serif text-3xl mb-4">{title}</h3>
       <p className="text-muted-foreground font-light leading-relaxed mb-8">{description}</p>
       <a
