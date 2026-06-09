@@ -39,7 +39,7 @@ function SocialRow({ size = 26 }: { size?: number }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-border text-muted-foreground transition-all hover:text-foreground hover:border-foreground/60 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-border text-muted-foreground transition-all hover:text-primary hover:border-primary/50 hover:-translate-y-0.5"
         >
           <Icon width={size} height={size} />
         </a>
@@ -210,7 +210,7 @@ function VentureCard({ title, description, href }: { title: string; description:
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-border/60 hover:border-foreground transition-colors pb-1"
+        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-border/60 hover:text-primary hover:border-primary transition-colors pb-1"
       >
         Visit Site
         <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
