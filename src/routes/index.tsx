@@ -127,7 +127,7 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-border/40">
+      <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">About</p>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
