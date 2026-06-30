@@ -112,10 +112,11 @@ function Index() {
                   <dt className="text-xs md:text-sm uppercase tracking-[0.28em] font-semibold text-foreground/90 pt-1.5">
                     {row.label}
                   </dt>
-                  <dd className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[1.35rem] md:text-[1.5rem] leading-none">
+                  <dd className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[1.05rem] md:text-[1.15rem] font-medium leading-none">
                     {row.places.map((name, i) => (
-                      <span key={i} aria-label={name} title={name}>
-                        {FLAGS[name]}
+                      <span key={i} className="inline-flex items-center gap-2">
+                        <span aria-hidden="true">{FLAGS[name]}</span>
+                        <span>{name}</span>
                       </span>
                     ))}
                   </dd>
