@@ -211,8 +211,8 @@ function Index() {
           <p className="mt-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             Please email for CV
           </p>
-          <div className="mt-12 flex justify-center">
-            <SocialRow size={20} />
+          <div className="mt-14 flex justify-center">
+            <SocialRow showLabels />
           </div>
         </div>
       </section>
