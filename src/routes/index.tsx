@@ -147,7 +147,7 @@ function Index() {
           </div>
 
           <div className="mt-12">
-            <SocialRow />
+            <SocialRow showLabels />
           </div>
         </div>
       </section>
