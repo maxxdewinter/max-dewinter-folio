@@ -38,24 +38,6 @@ function SpotifyIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function SocialRow({ size = 26 }: { size?: number }) {
-  return (
-    <div className="flex items-center gap-3">
-      {socials.map(({ label, href, Icon }) => (
-        <a
-          key={label}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={label}
-            className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-primary/15 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          <Icon width={size} height={size} />
-        </a>
-      ))}
-    </div>
-  );
-}
 
 // Flag color stripes (left→right) for an elegant inline flag indicator
 const FLAG_STRIPES: Record<string, string[]> = {
