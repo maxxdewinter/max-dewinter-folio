@@ -149,11 +149,10 @@ function Index() {
               ventures on the side.
             </p>
             <p>
-              Competitive background in soccer (NCAA DII). Outside of that, I
-              spend my time weightlifting, cycling, biohacking, and cooking.
-              Broad music taste spanning 7,000+ liked tracks on Spotify, and a
-              soft spot for classic cinema, from Hitchcock thrillers to Eastwood
-              westerns.
+              Competitive background in soccer (NCAA DII). Nowadays, I spend my
+              time weightlifting, cycling, biohacking, and cooking. Broad music
+              taste spanning 7,000+ liked tracks on Spotify, and a soft spot for
+              classic cinema, from Hitchcock thrillers to Eastwood westerns.
             </p>
           </div>
         </div>
