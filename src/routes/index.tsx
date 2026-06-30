@@ -47,7 +47,28 @@ const FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
 };
 
-function SocialRow({ size = 26 }: { size?: number }) {
+function SocialRow({ size = 26, showLabels = false }: { size?: number; showLabels?: boolean }) {
+  if (showLabels) {
+    return (
+      <div className="flex items-start justify-center gap-8 md:gap-12">
+        {socials.map(({ label, href, Icon }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg px-2 py-2"
+          >
+            <span className="inline-flex items-center justify-center h-16 w-16 rounded-full border border-primary/15 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-primary group-hover:border-primary/50 group-hover:-translate-y-1 group-hover:shadow-sm">
+              <Icon width={28} height={28} />
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.18em] font-medium">{label}</span>
+          </a>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center gap-3">
       {socials.map(({ label, href, Icon }) => (
@@ -190,8 +211,8 @@ function Index() {
           <p className="mt-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             Please email for CV
           </p>
-          <div className="mt-12 flex justify-center">
-            <SocialRow size={20} />
+          <div className="mt-14 flex justify-center">
+            <SocialRow showLabels />
           </div>
         </div>
       </section>
