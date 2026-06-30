@@ -103,18 +103,20 @@ function Index() {
           <div className="mt-14 w-full max-w-2xl">
             <dl className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-12 gap-y-5 text-base md:text-lg text-left">
               {[
-                { label: "Born", places: [{ code: "TH", name: "Thailand" }, { code: "EN", name: "England" }] },
-                { label: "Raised", places: [{ code: "NZ", name: "New Zealand" }] },
-                { label: "Studied", places: [{ code: "US", name: "USA" }, { code: "AU", name: "Australia" }] },
-                { label: "Based", places: [{ code: "AU", name: "Australia" }] },
+                { label: "Born", places: ["Thailand", "England"] },
+                { label: "Raised", places: ["New Zealand"] },
+                { label: "Studied", places: ["USA", "Australia"] },
+                { label: "Based", places: ["Australia"] },
               ].map((row) => (
                 <div key={row.label} className="contents">
                   <dt className="text-xs md:text-sm uppercase tracking-[0.28em] font-semibold text-foreground/90 pt-1.5">
                     {row.label}
                   </dt>
-                  <dd className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                    {row.places.map((p, i) => (
-                      <CountryTag key={i} code={p.code} name={p.name} />
+                  <dd className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[1.35rem] md:text-[1.5rem] leading-none">
+                    {row.places.map((name, i) => (
+                      <span key={i} aria-label={name} title={name}>
+                        {FLAGS[name]}
+                      </span>
                     ))}
                   </dd>
                 </div>
