@@ -39,38 +39,13 @@ function SpotifyIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 
-// Flag color stripes (left→right) for an elegant inline flag indicator
-const FLAG_STRIPES: Record<string, string[]> = {
-  TH: ["#A51931", "#F4F5F8", "#2D2A4A", "#F4F5F8", "#A51931"],
-  EN: ["#FFFFFF", "#FFFFFF", "#CE1124", "#FFFFFF", "#FFFFFF"], // white field w/ red cross
-  NZ: ["#012169", "#012169", "#CE1126", "#012169", "#012169"],
-  US: ["#B22234", "#FFFFFF", "#B22234", "#FFFFFF", "#B22234"],
-  AU: ["#012169", "#012169", "#E4002B", "#012169", "#012169"],
+const FLAGS: Record<string, string> = {
+  Thailand: "🇹🇭",
+  England: "🇬🇧",
+  "New Zealand": "🇳🇿",
+  USA: "🇺🇸",
+  Australia: "🇦🇺",
 };
-
-function FlagMark({ code }: { code: string }) {
-  const stripes = FLAG_STRIPES[code] ?? ["#999", "#bbb", "#999"];
-  return (
-    <span
-      aria-hidden="true"
-      className="inline-flex h-3.5 w-5 overflow-hidden rounded-[2px] ring-1 ring-foreground/15 shadow-sm"
-    >
-      {stripes.map((c, i) => (
-        <span key={i} className="flex-1" style={{ backgroundColor: c }} />
-      ))}
-    </span>
-  );
-}
-
-function CountryTag({ code, name }: { code: string; name: string }) {
-  return (
-    <span className="inline-flex items-center gap-2.5">
-      <FlagMark code={code} />
-      <span className="text-foreground/90">{name}</span>
-      <span className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">{code}</span>
-    </span>
-  );
-}
 
 function SocialRow({ size = 26 }: { size?: number }) {
   return (
