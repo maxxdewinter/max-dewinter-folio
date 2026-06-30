@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube, ArrowUpRight } from "lucide-react";
-import portraitAsset from "@/assets/max-portrait-new.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
