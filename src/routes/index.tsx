@@ -39,38 +39,13 @@ function SpotifyIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 
-// Flag color stripes (left→right) for an elegant inline flag indicator
-const FLAG_STRIPES: Record<string, string[]> = {
-  TH: ["#A51931", "#F4F5F8", "#2D2A4A", "#F4F5F8", "#A51931"],
-  EN: ["#FFFFFF", "#FFFFFF", "#CE1124", "#FFFFFF", "#FFFFFF"], // white field w/ red cross
-  NZ: ["#012169", "#012169", "#CE1126", "#012169", "#012169"],
-  US: ["#B22234", "#FFFFFF", "#B22234", "#FFFFFF", "#B22234"],
-  AU: ["#012169", "#012169", "#E4002B", "#012169", "#012169"],
+const FLAGS: Record<string, string> = {
+  Thailand: "🇹🇭",
+  England: "🇬🇧",
+  "New Zealand": "🇳🇿",
+  USA: "🇺🇸",
+  Australia: "🇦🇺",
 };
-
-function FlagMark({ code }: { code: string }) {
-  const stripes = FLAG_STRIPES[code] ?? ["#999", "#bbb", "#999"];
-  return (
-    <span
-      aria-hidden="true"
-      className="inline-flex h-3.5 w-5 overflow-hidden rounded-[2px] ring-1 ring-foreground/15 shadow-sm"
-    >
-      {stripes.map((c, i) => (
-        <span key={i} className="flex-1" style={{ backgroundColor: c }} />
-      ))}
-    </span>
-  );
-}
-
-function CountryTag({ code, name }: { code: string; name: string }) {
-  return (
-    <span className="inline-flex items-center gap-2.5">
-      <FlagMark code={code} />
-      <span className="text-foreground/90">{name}</span>
-      <span className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">{code}</span>
-    </span>
-  );
-}
 
 function SocialRow({ size = 26 }: { size?: number }) {
   return (
@@ -128,18 +103,20 @@ function Index() {
           <div className="mt-14 w-full max-w-2xl">
             <dl className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-12 gap-y-5 text-base md:text-lg text-left">
               {[
-                { label: "Born", places: [{ code: "TH", name: "Thailand" }, { code: "EN", name: "England" }] },
-                { label: "Raised", places: [{ code: "NZ", name: "New Zealand" }] },
-                { label: "Studied", places: [{ code: "US", name: "USA" }, { code: "AU", name: "Australia" }] },
-                { label: "Based", places: [{ code: "AU", name: "Australia" }] },
+                { label: "Born", places: ["Thailand", "England"] },
+                { label: "Raised", places: ["New Zealand"] },
+                { label: "Studied", places: ["USA", "Australia"] },
+                { label: "Based", places: ["Australia"] },
               ].map((row) => (
                 <div key={row.label} className="contents">
                   <dt className="text-xs md:text-sm uppercase tracking-[0.28em] font-semibold text-foreground/90 pt-1.5">
                     {row.label}
                   </dt>
-                  <dd className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                    {row.places.map((p, i) => (
-                      <CountryTag key={i} code={p.code} name={p.name} />
+                  <dd className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[1.35rem] md:text-[1.5rem] leading-none">
+                    {row.places.map((name, i) => (
+                      <span key={i} aria-label={name} title={name}>
+                        {FLAGS[name]}
+                      </span>
                     ))}
                   </dd>
                 </div>
