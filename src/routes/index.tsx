@@ -39,13 +39,37 @@ function SpotifyIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 
-const FLAGS: Record<string, string> = {
-  Thailand: "🇹🇭",
-  England: "🇬🇧",
-  "New Zealand": "🇳🇿",
-  USA: "🇺🇸",
-  Australia: "🇦🇺",
+const COUNTRY_CODES: Record<string, string> = {
+  Thailand: "TH",
+  England: "EN",
+  "New Zealand": "NZ",
+  USA: "US",
+  Australia: "AU",
 };
+
+const FLAG_COLORS: Record<string, string> = {
+  Thailand: "#E3D5D5",
+  England: "#D5D5E3",
+  "New Zealand": "#D5D8E3",
+  USA: "#D5DDE3",
+  Australia: "#D5E0E0",
+};
+
+function FlagBadge({ country }: { country: string }) {
+  const code = COUNTRY_CODES[country] ?? country.slice(0, 2).toUpperCase();
+  const bg = FLAG_COLORS[country] ?? "oklch(0.94 0.006 250)";
+
+  return (
+    <span
+      className="inline-flex items-center justify-center h-7 w-7 rounded-full border text-[10px] font-bold uppercase tracking-[0.08em] text-foreground/80"
+      style={{ backgroundColor: bg }}
+      aria-label={country}
+      title={country}
+    >
+      {code}
+    </span>
+  );
+}
 
 function SocialRow({ size = 26, showLabels = false }: { size?: number; showLabels?: boolean }) {
   if (showLabels) {
