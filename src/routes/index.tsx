@@ -159,8 +159,8 @@ function Index() {
                   </dt>
                   <dd className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[1.05rem] md:text-[1.15rem] font-medium leading-none">
                     {row.places.map((name, i) => (
-                      <span key={i} className="inline-flex items-center gap-2">
-                        <span aria-hidden="true">{FLAGS[name]}</span>
+                      <span key={i} className="inline-flex items-center gap-2.5">
+                        <FlagBadge country={name} />
                         <span>{name}</span>
                       </span>
                     ))}
