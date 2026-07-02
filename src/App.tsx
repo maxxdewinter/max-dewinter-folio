@@ -1,18 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube, ArrowUpRight } from "lucide-react";
-
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Max DeWinter" },
-      { name: "description", content: "Max DeWinter — founder and operator. Personal site, ventures, and contact." },
-      { property: "og:title", content: "Max DeWinter" },
-      { property: "og:description", content: "Max DeWinter — founder and operator." },
-    ],
-  }),
-  component: Index,
-});
 
 const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/max-dewinter", Icon: Linkedin },
@@ -38,7 +24,6 @@ function SpotifyIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-
 const COUNTRY_CODES: Record<string, string> = {
   Thailand: "TH",
   England: "EN",
@@ -58,7 +43,6 @@ const FLAG_COLORS: Record<string, string> = {
 function FlagBadge({ country }: { country: string }) {
   const code = COUNTRY_CODES[country] ?? country.slice(0, 2).toUpperCase();
   const bg = FLAG_COLORS[country] ?? "oklch(0.94 0.006 250)";
-
   return (
     <span
       className="inline-flex items-center justify-center h-7 w-7 rounded-full border text-[10px] font-bold uppercase tracking-[0.08em] text-foreground/80"
@@ -74,7 +58,7 @@ function FlagBadge({ country }: { country: string }) {
 function SocialRow({ size = 26, showLabels = false }: { size?: number; showLabels?: boolean }) {
   if (showLabels) {
     return (
-      <div className="flex items-start justify-center gap-8 md:gap-12">
+      <div className="flex flex-wrap items-start justify-center gap-8 md:gap-12">
         {socials.map(({ label, href, Icon }) => (
           <a
             key={label}
@@ -102,7 +86,7 @@ function SocialRow({ size = 26, showLabels = false }: { size?: number; showLabel
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-            className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-primary/15 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="inline-flex items-center justify-center h-12 w-12 rounded-full border border-primary/15 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <Icon width={size} height={size} />
         </a>
@@ -111,7 +95,25 @@ function SocialRow({ size = 26, showLabels = false }: { size?: number; showLabel
   );
 }
 
-function Index() {
+function VentureCard({ title, description, href }: { title: string; description: string; href: string }) {
+  return (
+    <div className="group relative bg-card/40 border border-primary/15 rounded-lg p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-primary/30 hover:bg-card/70">
+      <h3 className="font-serif text-3xl mb-4">{title}</h3>
+      <p className="text-muted-foreground font-light leading-relaxed mb-8">{description}</p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-primary/20 hover:text-primary hover:border-primary transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+      >
+        Visit Site
+        <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </a>
+    </div>
+  );
+}
+
+export default function App() {
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Ventures", href: "#ventures" },
@@ -120,7 +122,6 @@ function Index() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-primary/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <a href="#hero" className="font-serif text-xl tracking-wide text-foreground">MDW</a>
@@ -138,7 +139,6 @@ function Index() {
         </div>
       </nav>
 
-      {/* Hero */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 pt-16">
         <div className="w-full max-w-4xl text-center flex flex-col items-center">
           <h1 className="font-serif font-semibold leading-[0.95] tracking-tight text-[clamp(3.5rem,12vw,9rem)]">
@@ -176,14 +176,10 @@ function Index() {
         </div>
       </section>
 
-
-      {/* About */}
       <section id="about" className="py-20 md:py-24 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">About</p>
-          <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
-            For Context.
-          </h2>
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">For Context.</h2>
           <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
             <p>
               Current student at the University of Sydney studying Management and
@@ -200,8 +196,6 @@ function Index() {
         </div>
       </section>
 
-
-      {/* Ventures */}
       <section id="ventures" className="py-32 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Ventures</p>
@@ -221,7 +215,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Contact */}
       <section id="contact" className="py-32 px-6 md:px-16 border-t border-primary/10">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm uppercase tracking-[0.25em] text-primary mb-8">Contact</p>
@@ -232,9 +225,7 @@ function Index() {
           >
             hello@maxdewinter.com
           </a>
-          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            Please email for CV
-          </p>
+          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">Please email for CV</p>
           <div className="mt-14 flex justify-center">
             <SocialRow showLabels />
           </div>
@@ -248,23 +239,5 @@ function Index() {
         </div>
       </footer>
     </main>
-  );
-}
-
-function VentureCard({ title, description, href }: { title: string; description: string; href: string }) {
-  return (
-    <div className="group relative bg-card/40 border border-primary/15 rounded-lg p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-primary/30 hover:bg-card/70">
-      <h3 className="font-serif text-3xl mb-4">{title}</h3>
-      <p className="text-muted-foreground font-light leading-relaxed mb-8">{description}</p>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground border-b border-primary/20 hover:text-primary hover:border-primary transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-      >
-        Visit Site
-        <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </a>
-    </div>
   );
 }
