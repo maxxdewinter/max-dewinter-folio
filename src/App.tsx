@@ -44,9 +44,9 @@ function SocialRow() {
           rel="noopener noreferrer"
           className="group flex flex-col items-center gap-3 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg px-1 py-2"
         >
-          <span className="inline-flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full border border-foreground text-foreground transition-colors duration-300 ease-out group-hover:bg-accent group-hover:border-accent group-hover:text-background group-active:bg-accent group-active:border-accent group-active:text-background">
-            <Icon width={28} height={28} className="sm:hidden" />
-            <Icon width={32} height={32} className="hidden sm:block" />
+          <span className="inline-flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 border-foreground text-foreground transition-colors duration-300 ease-out group-hover:bg-accent group-hover:border-accent group-hover:text-background group-active:bg-accent group-active:border-accent group-active:text-background">
+            <Icon width={32} height={32} className="sm:hidden" />
+            <Icon width={36} height={36} className="hidden sm:block" />
           </span>
           <span className="text-[12px] sm:text-[13px] uppercase tracking-[0.18em] font-semibold">{label}</span>
         </a>
@@ -66,7 +66,7 @@ export default function App() {
 
           <a
             href="mailto:hello@maxdewinter.com"
-            className="mt-12 inline-block font-serif font-normal text-2xl md:text-3xl text-foreground border-b border-foreground transition-colors duration-300 ease-out pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+            className="mt-12 inline-block font-serif font-normal text-2xl md:text-3xl text-foreground border-b border-foreground transition-colors duration-300 ease-out pb-1 hover:text-accent hover:border-accent active:text-accent active:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
           >
             hello@maxdewinter.com
           </a>
